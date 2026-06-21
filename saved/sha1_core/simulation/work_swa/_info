@@ -1,0 +1,72 @@
+m255
+K4
+z2
+!s12c _opt
+Z0 !s99 nomlopt
+!s11f vlog 2023.4 2023.10, Oct  9 2023
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 d/space/s363583/WORK_Group26/saved/sha1_core/simulation
+T_opt
+!s110 1782065545
+VUMDToKW]`fSZaG2ka>KFA0
+04 12 4 work tb_sha1_core fast 0
+=1-000ae431a4f1-6a382987-91f71-9c4f6
+R0
+!s12f OEM100
+!s12b OEM100
+!s124 OEM100
+o-quiet -auto_acc_if_foreign -work work_swa -L ../../../tech/STcmos65/vsimlib +acc=np+sha1_core
+Z2 tCvgOpt 0
+n@_opt
+OE;O;2023.4;77
+vsha1_core
+Z3 2../synthesis/sha1_core_postsyn.v|../../../rtl/sha1_core/tb/tb_sha1_core.v
+Z4 !s110 1782065218
+!i10b 1
+!s100 `3B9]TefKd]dIK1QTl[5d1
+I137gc?9Al]=QhJ]z=Eo3L1
+R1
+w1782064925
+8../synthesis/sha1_core_postsyn.v
+F../synthesis/sha1_core_postsyn.v
+!i122 0
+L0 8 7832
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+Z6 OE;L;2023.4;77
+r1
+!s85 0
+31
+Z7 !s108 1782065217.000000
+Z8 !s107 ../../../rtl/sha1_core/tb/tb_sha1_core.v|../synthesis/sha1_core_postsyn.v|
+Z9 !s90 ../synthesis/sha1_core_postsyn.v|../../../rtl/sha1_core/tb/tb_sha1_core.v|-work|work_swa|
+!i113 0
+Z10 o-work work_swa -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+vtb_sha1_core
+R3
+R4
+!i10b 1
+!s100 kKn=4`hzM`CQ:[DQRPLfY2
+IInYFzkcXF>kFncbJ81WTZ2
+R1
+w1780587857
+8../../../rtl/sha1_core/tb/tb_sha1_core.v
+F../../../rtl/sha1_core/tb/tb_sha1_core.v
+!i122 0
+L0 40 318
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R2

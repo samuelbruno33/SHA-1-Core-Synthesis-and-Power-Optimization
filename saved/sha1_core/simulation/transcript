@@ -1,0 +1,136 @@
+# vsim -c -t ns -L ../../../tech/STcmos65/vsimlib work_swa.tb_sha1_core -voptargs="+acc=np+sha1_core" 
+# Start time: 20:33:04 on Jun 21,2026
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim
+# //  Version 2023.4 linux Oct  9 2023
+# //
+# //  Copyright 1991-2023 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading work.tb_sha1_core(fast)
+# Loading work.sha1_core(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_AO22X4(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_NAND2X2(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_BFX9(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_AO212X27(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_IVX2(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_AND2X4(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_IVX4(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_NOR2X2(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_MX41X4(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_AOI212X2(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_MUX21X4(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_NOR2X6(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_AO212X4(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_AOI21X2(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_BFX7(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_NAND2X7(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_BFX22(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_NAND4ABX3(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_AO222X4(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_AO22X9(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_AOI22X1(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_OAI12X3(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_OR2X4(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_AND2ABX27(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LHS_XNOR2X3(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_OAI12X2(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_OAI211X4(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_AOI22X6(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_OA12X4(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_AND3X4(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_OAI211X5(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_OAI21X2(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_OR3X4(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_BFX2(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LHS_XOR2X3(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_IVX7(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_IVX9(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_BFX4(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_NAND2X4(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_NOR3X1(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LHS_XOR3X2(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_MUXI21X2(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_AO12X4(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_OAI112X1(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_OAI212X3(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_NOR2AX3(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_OAI222X2(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_OA22X4(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_AOI12X2(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_NAND2AX4(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_NAND3X2(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_DFPRQX4(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_DFPSQX4(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_IVX35(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LHS_DFPRQX27(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_AO22X27(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_BFX27(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_OR3ABCX27(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_OR2ABX27(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_IVX27(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_AO22X35(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_OAI112X4(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_HA1X4(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_FA1X4(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_FA1X9(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LHS1_FA1X9(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LHS1_FA1X35(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_FA1X18(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_NAND3X6(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_NAND2X5(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LHS_XOR2X6(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_OR2X9(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_NAND3X5(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_XOR3X9(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LHS_XNOR2X6(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_XOR3X18(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_XOR2X9(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_OR2X27(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_XNOR2X18(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_NAND2X14(fast)
+# Loading ../../../tech/STcmos65/vsimlib.HS65_LH_XOR3X4(fast)
+#    -- Testbench for sha1 core started --
+# State of DUT
+# ------------
+# Inputs and outputs:
+# init   = 0xx, next  = 0xx
+# block  = 0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# ready  = 0xx, valid = 0xx
+# digest = 0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# 
+# *** Toggle reset.
+# State of DUT
+# ------------
+# Inputs and outputs:
+# init   = 0x0, next  = 0x0
+# block  = 0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+# ready  = 0x1, valid = 0x0
+# digest = 0x0000000000000000000000000000000000000000
+# 
+# *** TC 1 single block test case started.
+# *** TC 1 successful.
+# 
+# *** TC 2 double block test case started.
+# *** TC 2 first block started.
+# *** TC 2 first block done.
+# *** TC 2 second block started.
+# *** TC 2 second block done.
+# *** TC 2 first block successful
+# 
+# *** TC 2 second block successful
+# 
+# *** All  2 test cases completed successfully
+# *** Simulation done.
+# ** Note: $finish    : ../../../rtl/sha1_core/tb/tb_sha1_core.v(355)
+#    Time: 496 ns  Iteration: 0  Instance: /tb_sha1_core
+# End time: 20:34:02 on Jun 21,2026, Elapsed time: 0:00:58
+# Errors: 0, Warnings: 0

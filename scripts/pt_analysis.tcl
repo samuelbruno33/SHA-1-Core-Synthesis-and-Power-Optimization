@@ -17,11 +17,7 @@
 ######################################################################
 
 # SOURCE SETUP FILE
-<<<<<<< HEAD
-source "./synopsys_pt.setup"
-=======
 source "./tech/STcmos65/synopsys_pt.setup"
->>>>>>> old-base
 
 # DEFINE OPTIONS
 set report_default_significant_digits 6
@@ -38,21 +34,14 @@ suppress_message PLIB-166
 suppress_message PLIB-167
 suppress_message PTE-139
 suppress_message NED-045
-<<<<<<< HEAD
 
-=======
->>>>>>> old-base
 ######################################################################
 ##
 ## READ DESIGN
 ##
 ######################################################################
 # DEFINE CIRCUITS
-<<<<<<< HEAD
 set blockName "sha1_core"
-=======
-set blockName sha1_core
->>>>>>> old-base
 
 # DEFINE INPUT FILES
 set dir "./saved/${blockName}/synthesis"
@@ -63,9 +52,8 @@ set in_sdc_filename "${dir}/${blockName}_postsyn.sdc"
 read_verilog $in_verilog_filename
 link_design $blockName
 read_sdc $in_sdc_filename
-<<<<<<< HEAD
 set_ideal_network "clk"
-set_ideal_network "rst_n"
+set_ideal_network "reset_n"
 
 update_timing -full
 
@@ -86,9 +74,11 @@ report_timing -delay_type max -slack_lesser_than 0.0 -max_paths 2
 ## POWER ANALYSIS (VCD-BASED SWA BACK-ANNOTATION)
 ##
 ######################################################################
-# IMPORTANT: Adjust the path to the VCD file and the strip_path based on your testbench names
+
 set vcd_file "./saved/${blockName}/simulation/${blockName}.vcd"
-read_vcd $vcd_file -strip_path "/testbench_name/dut_instance" -zero_delay
+
+# Read VCD file and strip the testbench hierarchy to match the top-level design
+read_vcd $vcd_file -strip_path "tb_sha1_core/dut" -zero_delay
 
 set_power_clock_scaling -period [get_attribute [get_clocks] period] [get_clocks]
 set power_enable_clock_scaling true
@@ -122,12 +112,4 @@ puts "========================================================\n"
 ## EXIT
 ##
 ######################################################################
-=======
-
-set_ideal_network clk
-set_ideal_network reset_n
-
-update_timing -full
-
->>>>>>> old-base
 exit

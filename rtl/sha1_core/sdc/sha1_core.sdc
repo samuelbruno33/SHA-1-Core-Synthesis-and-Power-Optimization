@@ -1,10 +1,6 @@
 set clockName clk
 set rstName reset_n
-<<<<<<< HEAD
-set clockPeriod 5
-=======
-set clockPeriod 20
->>>>>>> old-base
+set clockPeriod 5.5
 
 ;# Set-up Clock
 create_clock -period $clockPeriod $clockName
