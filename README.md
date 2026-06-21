@@ -1,4 +1,4 @@
-# SHA1-OptiFlow: Power & Performance Optimization
+# Group 26 - Synthesis Project
 
 This project implements a complete logic synthesis and optimization flow for the `sha1_core` hardware module, using STcmos65 technology libraries. The goal is to perform a detailed analysis of Power, Performance, and Area (PPA) metrics and implement dynamic and static power reduction techniques.
 
