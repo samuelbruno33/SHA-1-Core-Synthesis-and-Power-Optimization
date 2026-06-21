@@ -17,7 +17,11 @@
 ######################################################################
 
 # SOURCE SETUP FILE
+<<<<<<< HEAD
 source "./synopsys_pt.setup"
+=======
+source "./tech/STcmos65/synopsys_pt.setup"
+>>>>>>> old-base
 
 # DEFINE OPTIONS
 set report_default_significant_digits 6
@@ -34,14 +38,21 @@ suppress_message PLIB-166
 suppress_message PLIB-167
 suppress_message PTE-139
 suppress_message NED-045
+<<<<<<< HEAD
 
+=======
+>>>>>>> old-base
 ######################################################################
 ##
 ## READ DESIGN
 ##
 ######################################################################
 # DEFINE CIRCUITS
+<<<<<<< HEAD
 set blockName "sha1_core"
+=======
+set blockName sha1_core
+>>>>>>> old-base
 
 # DEFINE INPUT FILES
 set dir "./saved/${blockName}/synthesis"
@@ -52,6 +63,7 @@ set in_sdc_filename "${dir}/${blockName}_postsyn.sdc"
 read_verilog $in_verilog_filename
 link_design $blockName
 read_sdc $in_sdc_filename
+<<<<<<< HEAD
 set_ideal_network "clk"
 set_ideal_network "rst_n"
 
@@ -110,4 +122,12 @@ puts "========================================================\n"
 ## EXIT
 ##
 ######################################################################
+=======
+
+set_ideal_network clk
+set_ideal_network reset_n
+
+update_timing -full
+
+>>>>>>> old-base
 exit
