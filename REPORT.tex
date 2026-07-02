@@ -14,7 +14,7 @@
     \textbf{SODS Final Project - Group 26}\\[0.5em]
     \large
     \begin{tabular}{ccc}
-        Name Surname sID & Name Surname sID & Name Surname sID
+        Samuel Bruno s363583 & Gaetano Carbone s359776 & Lorenzo Deplano s361511
     \end{tabular}
 }
 
@@ -25,19 +25,21 @@
 \maketitle
 \vspace{-2cm}
 \section{Baseline Synthesis}
+The baseline synthesis for the \texttt{sha1\_core} design was performed using the \texttt{STcmos65} High-$V_{th}$ (HVT) library. Through an iterative constraint-tightening process, the minimum clock period that satisfies both the setup timing constraints (Slack $\ge$ 0) and the physical constraint (Area $\le$ 24100 $\mu m^2$) was identified as 5.5 ns. For the tighter constraint of 5.0 ns, the area exceeded the maximum allowed limit ($24229.22 \mu m^2$). Power metrics were accurately evaluated in PrimeTime using a VCD-based Switching Activity (SWA) back-annotation derived from post-synthesis functional simulation. The final extracted metrics are summarized in Table \ref{tab:baseline}.
 
 \begin{table}[h]
 \centering
 \caption{Baseline synthesis results}
+\label{tab:baseline}
 \begin{tabular}{lc}
 \toprule
 \textbf{Metric} & \textbf{Value} \\
 \midrule
-Clock period (ns) &  \\
-Area ($\mu m^2$) &  \\
-Slack (ns) &  \\
-Leakage power (mW) &  \\
-Dynamic power (mW) &  \\
+Clock period (ns) & 5.50 \\
+Area ($\mu m^2$) & 22835.56 \\
+Slack (ns) & 0.0003 \\
+Leakage power (mW) & $4.17 \times 10^{-5}$ \\
+Dynamic power (mW) & 5.77 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -49,42 +51,73 @@ Dynamic power (mW) &  \\
 \begin{table}[h]
 \centering
 \caption{Clock-gating optimization results}
+\label{tab:clockgating}
 \begin{tabular}{lc}
 \toprule
 \textbf{Metric} & \textbf{Value} \\
 \midrule
-Area ($\mu m^2$) &  \\
-Slack (ns) &  \\
-Leakage power (mW) &  \\
-Dynamic power (mW) &  \\
+Area ($\mu m^2$) & 21873.99 \\
+Slack (ns) & 0.0013 \\
+Leakage power (mW) & $4.14 \times 10^{-5}$ \\
+Dynamic power (mW) & 6.17 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\paragraph{Discussion.} ...
-% Discuss and motivate the impact of clock gating on PPA metrics.
+\paragraph{Discussion.} 
+The introduction of clock-gating resulted in a reduction in overall area (from 22835 to 21874 $\mu m^2$) and a marginal improvement in the worst negative slack. The area reduction is primarily driven by the replacement of multiple data-path feedback multiplexers (typically used for register enable signals) with fewer Integrated Clock Gating (ICG) cells, according to the specified maximum fanout parameter. This architectural change also reduces the combinational logic depth on the data paths, slightly easing the setup timing constraints.
+However, dynamic power consumption slightly increased (from 5.77 mW to 6.17 mW). This counterintuitive behavior occurs because the SHA-1 core is subjected to continuous high-activity streaming in its functional testbench, meaning the enable signals are rarely de-asserted. Consequently, the design pays the switching power overhead of the added ICG cells within the clock tree, without fully reaping the benefits of disabling the registers. Conversely, leakage power decreased proportionally to the area reduction.
 
 \subsection{Clock-Gating + Multi-VT}
-
 \begin{table}[h]
 \centering
 \caption{Clock-gating and Multi-VT optimization results}
+\label{tab:multivt}
 \begin{tabular}{lc}
 \toprule
 \textbf{Metric} & \textbf{Value} \\
 \midrule
-Percentage of LVT cells (\%) &  \\
-Percentage of SVT cells (\%) &  \\
-Percentage of HVT cells (\%) &  \\
-Area ($\mu m^2$) &  \\
-Slack (ns) &  \\
-Leakage power (mW) &  \\
-Dynamic power (mW) &  \\
+Percentage of LVT cells (\%) & 21.48 \\
+Percentage of SVT cells (\%) & 0.05 \\
+Percentage of HVT cells (\%) & 78.47 \\
+Area ($\mu m^2$) & 22564.01 \\
+Slack (ns) & 0.0020 \\
+Leakage power (mW) & $1.17 \times 10^{-3}$ \\
+Dynamic power (mW) & 6.17 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\paragraph{Discussion.} ...
-% Discuss and motivate the impact of Multi-VT synthesis on PPA metrics.
+\paragraph{Discussion.} 
+The Multi-VT synthesis leveraged the available threshold voltage libraries to meet the constraints, resulting in a structural mix of approximately 78.47\% HVT, 21.48\% LVT, and a negligible fraction of SVT cells (0.05\%). Compared to the purely HVT clock-gated baseline (Exercise 2.1), the introduction of LVT cells caused a significant and expected increase in leakage power (from $4.14 \times 10^{-5}$ mW to $1.17 \times 10^{-3}$ mW). This trade-off was necessary for the synthesis engine to resolve timing bottlenecks on critical paths introduced by the clock-gating logic and physical mapping, allowing the design to strictly meet the 5.5 ns clock period. The dynamic power remained practically unchanged (6.17 mW), confirming that the switching activity and the overall clock-gating efficiency were successfully preserved.
+
+\section{Custom Post-Synthesis Report}
+
+\begin{table}[h]
+\centering
+\caption{Sample output of the custom timing report (Top 50 paths, max delay)}
+\label{tab:custom_report}
+\begin{tabular}{llc}
+\toprule
+\textbf{Cell Full Name} & \textbf{Cell Ref Name} & \textbf{Occurrences} \\
+\midrule
+\texttt{add\_3\_root\_add\_0\_root\_add\_315\_4/U1\_1}  & \texttt{HS65\_LH\_FA1X4}   & 1 \\
+\texttt{add\_1\_root\_add\_0\_root\_add\_315\_4/U1\_3}  & \texttt{HS65\_LH\_FA1X4}   & 1 \\
+\texttt{add\_1\_root\_add\_0\_root\_add\_315\_4/U1\_12} & \texttt{HS65\_LH\_FA1X4}   & 1 \\
+\texttt{add\_1\_root\_add\_0\_root\_add\_315\_4/U1\_13} & \texttt{HS65\_LH\_FA1X4}   & 1 \\
+\texttt{add\_1\_root\_add\_0\_root\_add\_315\_4/U1\_4}  & \texttt{HS65\_LH\_FA1X4}   & 1 \\
+\texttt{add\_1\_root\_add\_0\_root\_add\_315\_4/U1\_14} & \texttt{HS65\_LH\_FA1X9}   & 1 \\
+\texttt{add\_3\_root\_add\_0\_root\_add\_315\_4/U1\_3}  & \texttt{HS65\_LHS1\_FA1X9} & 1 \\
+\texttt{add\_1\_root\_add\_0\_root\_add\_315\_4/U1\_5}  & \texttt{HS65\_LH\_FA1X4}   & 1 \\
+\texttt{add\_1\_root\_add\_0\_root\_add\_315\_4/U1\_15} & \texttt{HS65\_LH\_FA1X9}   & 1 \\
+\texttt{add\_1\_root\_add\_0\_root\_add\_315\_4/U1\_6}  & \texttt{HS65\_LH\_FA1X4}   & 1 \\
+\dots & \dots & \dots \\
+\bottomrule
+\end{tabular}
+% }
+\end{table}
+
+\paragraph{Discussion.} 
+To validate the developed TCL procedure, the PrimeTime analysis script was executed, which automatically invokes the function \texttt{custom\_report 50 max}. This configuration analyzes the 50 most critical paths for maximum delay (setup timing) and counts how many times each combinational cell appears within them. Table \ref{tab:custom_report} shows an excerpt of the generated output. As requested, the script correctly filters out sequential elements and lists only the combinational logic gates, sorted in descending order based on their occurrence frequency across the analyzed paths.
 
 \end{document}

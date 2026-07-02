@@ -1,7 +1,7 @@
 #@ # 
 #@ # Running pt_shell Version V-2023.12-SP1 for linux64 -- Jan 16, 2024
-#@ # Date:   Sun Jun 21 20:19:59 2026
-#@ # Run by: s363583@worksynthesis
+#@ # Date:   Wed Jul  1 14:05:42 2026
+#@ # Run by: s359776@worksynthesis
 #@ 
 
 source /space/tools/synopsys/prime/V-2023.12-SP1/admin/setup/.synopsys_pt.setup
@@ -794,81 +794,4 @@ source /space/tools/synopsys/prime/V-2023.12-SP1/admin/setup/.synopsys_pt.setup
 #@ }
 #@ 
 #@ #
-#@ # USAGE:  itcl::configbody name arglist body
-#@ # Adds an entry for the given method/proc body.
-#@ #
-#@ foreach __cmd {itcl::configbody configbody} {
-#@     auto_mkindex_parser::command $__cmd {name body} {
-#@ 	variable index
-#@ 	variable scriptFile
-#@ 	append index "set [list auto_index([fullname $name])]"
-#@ 	append index " \[list source \[file join \$dir [list $scriptFile]\]\]\n"
-#@     }
-#@ }
-#@ 
-#@ #
-#@ # USAGE:  ensemble name ?body?
-#@ # Adds an entry to the auto index list for the given ensemble name.
-#@ #
-#@ foreach __cmd {itcl::ensemble ensemble} {
-#@     auto_mkindex_parser::command $__cmd {name {body ""}} {
-#@ 	variable index
-#@ 	variable scriptFile
-#@ 	append index "set [list auto_index([fullname $name])]"
-#@ 	append index " \[list source \[file join \$dir [list $scriptFile]\]\]\n"
-#@     }
-#@ }
-#@ 
-#@ #
-#@ # USAGE:  public arg ?arg arg...?
-#@ #         protected arg ?arg arg...?
-#@ #         private arg ?arg arg...?
-#@ #
-#@ # Evaluates the arguments as commands, so we can recognize proc
-#@ # declarations within classes.
-#@ #
-#@ foreach __cmd {public protected private} {
-#@     auto_mkindex_parser::command $__cmd {args} {
-#@         variable parser
-#@         $parser eval $args
-#@     }
-#@ }
-#@ 
-#@ # SF bug #246 unset variable __cmd to avoid problems in user programs!!
-#@ unset __cmd
-#@ 
-#@ # ----------------------------------------------------------------------
-#@ # auto_import
-#@ # ----------------------------------------------------------------------
-#@ # This procedure overrides the usual "auto_import" function in the
-#@ # Tcl library.  It is invoked during "namespace import" to make see
-#@ # if the imported commands reside in an autoloaded library.  If so,
-#@ # stubs are created to represent the commands.  Executing a stub
-#@ # later on causes the real implementation to be autoloaded.
-#@ #
-#@ # Arguments -
-#@ # pattern	The pattern of commands being imported (like "foo::*")
-#@ #               a canonical namespace as returned by [namespace current]
-#@ 
-#@ proc auto_import {pattern} {
-#@     global auto_index
-#@ 
-#@     set ns [uplevel namespace current]
-#@     set patternList [auto_qualify $pattern $ns]
-#@ 
-#@     auto_load_index
-#@ 
-#@     foreach pattern $patternList {
-#@         foreach name [array names auto_index $pattern] {
-#@             if {"" == [info commands $name]} {
-#@                 ::itcl::import::stub create $name
-#@             }
-#@         }
-#@     }
-#@ }
-#@ # -- End source /space/tools/synopsys/prime/V-2023.12-SP1/auxx/tcllib/lib/itcl4.2.1/itcl.tcl
-
-source -echo -verbose scripts/pt_analysis.tcl
-cd ../../
-exit
-if { [namespace which -command __pre_quit_tcl_procs] == "::__pre_quit_tcl_procs" } {   __pre_quit_tcl_procs}
+#@ # USAGE:  i
