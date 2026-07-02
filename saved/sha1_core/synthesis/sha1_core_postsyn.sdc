@@ -1,6 +1,6 @@
 ###################################################################
 
-# Created by write_sdc on Sun Jun 21 20:32:39 2026
+# Created by write_sdc on Thu Jul  2 14:44:47 2026
 
 ###################################################################
 set sdc_version 2.1
@@ -2279,3 +2279,19 @@ set_output_delay -clock clk  0.15  [get_ports {digest[2]}]
 set_output_delay -clock clk  0.15  [get_ports {digest[1]}]
 set_output_delay -clock clk  0.15  [get_ports {digest[0]}]
 set_output_delay -clock clk  0.15  [get_ports digest_valid]
+set_clock_gating_check -rise -setup 0 [get_cells -hsc @                        \
+{clk_gate_w_mem_inst/w_mem_reg[0]@main_gate}]
+set_clock_gating_check -fall -setup 0 [get_cells -hsc @                        \
+{clk_gate_w_mem_inst/w_mem_reg[0]@main_gate}]
+set_clock_gating_check -rise -hold 0 [get_cells -hsc @                         \
+{clk_gate_w_mem_inst/w_mem_reg[0]@main_gate}]
+set_clock_gating_check -fall -hold 0 [get_cells -hsc @                         \
+{clk_gate_w_mem_inst/w_mem_reg[0]@main_gate}]
+set_clock_gating_check -rise -setup 0 [get_cells clk_gate_a_reg_reg/main_gate]
+set_clock_gating_check -fall -setup 0 [get_cells clk_gate_a_reg_reg/main_gate]
+set_clock_gating_check -rise -hold 0 [get_cells clk_gate_a_reg_reg/main_gate]
+set_clock_gating_check -fall -hold 0 [get_cells clk_gate_a_reg_reg/main_gate]
+set_clock_gating_check -rise -setup 0 [get_cells clk_gate_H0_reg_reg/main_gate]
+set_clock_gating_check -fall -setup 0 [get_cells clk_gate_H0_reg_reg/main_gate]
+set_clock_gating_check -rise -hold 0 [get_cells clk_gate_H0_reg_reg/main_gate]
+set_clock_gating_check -fall -hold 0 [get_cells clk_gate_H0_reg_reg/main_gate]

@@ -1,0 +1,15 @@
+# Define environment variable for Synopsys
+set snps [getenv "SYNOPSYS"]
+set technology "STcmos65"
+
+# Set search paths for libraries
+set search_path ""
+lappend search_path "${snps}/libraries/syn"
+lappend search_path "./tech/${technology}"
+
+set target_library ""
+lappend target_library "CORE65LPSVT_nom_1.20V_25C.db"
+lappend target_library "CORE65LPLVT_nom_1.20V_25C.db"
+lappend target_library "CORE65LPHVT_nom_1.20V_25C.db"
+
+set link_library "* ${target_library}"

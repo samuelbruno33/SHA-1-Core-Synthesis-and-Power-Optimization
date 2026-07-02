@@ -17,7 +17,7 @@
 ######################################################################
 
 # SOURCE SETUP FILE
-source "./tech/STcmos65/synopsys_pt.setup"
+source "./Group26/ex1/synopsys_pt.setup"
 
 # DEFINE OPTIONS
 set report_default_significant_digits 6
@@ -87,15 +87,16 @@ update_power
 report_power
 
 ######################################################################
-##
-## EXTRACT AND REPORT METRICS (Custom section for Ex 1)
-##
+## EXTRACT AND REPORT METRICS
 ######################################################################
 set clockPeriod [get_attribute [get_clocks] period]
 set wrt_slack [get_attribute [get_timing_paths] slack]
 set area [get_attribute [current_design] area]
-set dynamic [get_attribute [current_design] dynamic_power]
-set leakage [get_attribute [current_design] leakage_power]
+
+set dynamic_w [get_attribute [current_design] dynamic_power]
+set leakage_w [get_attribute [current_design] leakage_power]
+set dynamic_mw [expr {$dynamic_w * 1000.0}]
+set leakage_mw [expr {$leakage_w * 1000.0}]
 
 puts "\n========================================================"
 puts "                EXERCISE 1 - METRICS REPORT"
@@ -103,8 +104,8 @@ puts "========================================================"
 puts "Clock period (ns) : $clockPeriod"
 puts "Area (um2)        : $area"
 puts "Slack (ns)        : $wrt_slack"
-puts "Leakage power (mW): $leakage"
-puts "Dynamic power (mW): $dynamic"
+puts "Leakage power (mW): $leakage_mw"
+puts "Dynamic power (mW): $dynamic_mw"
 puts "========================================================\n"
 
 ######################################################################

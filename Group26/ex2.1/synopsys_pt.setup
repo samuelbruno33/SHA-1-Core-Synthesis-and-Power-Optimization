@@ -1,0 +1,9 @@
+# Set technology name
+set technology "STcmos65"
+
+# Set search paths
+set search_path ""
+lappend search_path "./tech/${technology}"
+
+# Define libraries
+set link_library "* CORE65LPHVT_nom_1.20V_25C.db"
